@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <title>Edit Heading</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <!-- Adobe TypeKit fonts -->
+  <script src="https://use.typekit.net/iza1jgq.js"></script>
+  <script>try {
+    Typekit.load({async: true});
+  } catch (e) {
+  }</script>
+  <!-- Local installation of Bootstrap -->
+  <link rel="stylesheet"
+        href="../../css/bootstrap.min.css">
+  <!-- Locally defined CSS -->
+  <link rel="stylesheet"
+        href="../css/style.css">
+</head>
+<body>
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+      <div class="navbar-brand pull-left glyphicon glyphicon-menu-left"
+           href="#"></div>
+      <a class="navbar-brand"
+         href="#">Edit Image</a>
+      <div class="navbar-brand pull-right glyphicon glyphicon-ok"
+           href="widget-list.html">
+      </div>
+    </div>
+  </nav>
+  <h1 class="page-header">Edit Image</h1>
+  <div class="form-group">
+    <label for="widgetName">Name</label>
+    <input type="text"
+           class="form-control"
+           id="widgetName"
+           placeholder="Image name">
+    <label for="widgetText">Text</label>
+    <input type="text" class="form-control"
+           id="widgetText"
+           placeHolder="Describe your image here.">
+    <label for="widgetSize">URL</label>
+    <input type="text"
+           class="form-control"
+           id="widgetSize"
+           placeHolder="e.g. http://www.ccis.northeastern.edu/wp-content/uploads/2016/02/David-Sprague-index-image.jpg">
+    <label for="imageWidth">Width</label>
+    <input type="text"
+           class="form-control"
+           id="imageWidth"
+           placeholder="e.g. 100%">
+    <label for="exampleInputFile">File input</label>
+    <input type="file"
+           class="form-control-file"
+           id="exampleInputFile"
+           aria-describedby="fileHelp">
+    <small id="fileHelp"
+           class="form-text text-muted">This is some placeholder block-level help text
+      for the above input. It's a bit lighter and easily wraps to a new line.
+    </small>
+  </div>
+  <button type="button"
+          class="btn btn-block btn-primary">Upload Image
+  </button>
+  <button type="button"
+          class="btn btn-block btn-danger">Delete
+  </button>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="pull-right navbar-brand glyphicon glyphicon-user"
+         href="../user/profile.html">
+    </div>
+  </nav>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <title>RL | CS 5610</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Adobe TypeKit fonts -->
+  <script src="https://use.typekit.net/iza1jgq.js"></script>
+  <script>try {
+    Typekit.load({async: true});
+  } catch (e) {
+  }</script>
+  <!-- Local installation of Bootstrap -->
+  <link rel="stylesheet"
+        href="../../css/bootstrap.min.css">
+  <!-- Locally defined CSS -->
+  <link rel="stylesheet"
+        href="../css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand glyphicon glyphicon-menu-left"
+         href="website-list.view.client.html">
+      </a>
+      <a class="navbar-brand" href="#">New Website</a>
+      <a class="pull-right navbar-brand glyphicon glyphicon-ok"
+         href="website-list.view.client.html">
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="col-md-3">
+    <h3 class="page-header">Choose Site</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="../page/page-list.view.client.html">Website 1</a>
+        <a class="pull-right glyphicon glyphicon-cog"
+           href="website-edit.view.client.html">
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a href="../page/page-list.view.client.html">Website 2</a>
+        <a href="website-edit.view.client.html">
+          <span class="pull-right glyphicon glyphicon-cog"></span>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a href="../page/page-list.view.client.html">Website 3</a>
+        <a href="website-edit.view.client.html">
+          <span class="pull-right glyphicon glyphicon-cog"></span>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a href="../page/page-list.view.client.html">Website 4</a>
+        <a href="website-edit.view.client.html">
+          <span class="pull-right glyphicon glyphicon-cog"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6 container-fluid">
+    <h3 class="page-header">Edit Site</h3>
+    <form>
+      <div class="form-group">
+        <label for="websiteName">Name</label>
+        <input type="text" class="form-control" id="websiteName">
+      </div>
+    </form>
+    <form>
+      <div class="form-group">
+        <label for="websiteDescription">Description</label>
+        <textarea class="form-control" id="websiteDescription" rows="3"></textarea>
+      </div>
+    </form>
+  </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand glyphicon glyphicon-user pull-right"
+       href="../user/profile.view.client.html">
+    </a>
+  </div>
+</nav>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>
