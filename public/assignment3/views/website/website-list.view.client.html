@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <title>RL | CS 5610 | Websites</title>
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible"
-        content="IE=edge">
-  <!-- Adobe TypeKit fonts -->
-  <script src="https://use.typekit.net/iza1jgq.js"></script>
-  <script>try {
-    Typekit.load({async: true});
-  } catch (e) {
-  }</script>
-  <!-- Local installation of Bootstrap -->
-  <link rel="stylesheet"
-        href="../../css/bootstrap.min.css">
-  <!-- Locally defined CSS -->
-  <link rel="stylesheet"
-        href="../css/style.css">
-</head>
-<body>
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -32,36 +9,30 @@
       <a class="navbar-brand"
          href="#">Websites</a>
       <a class="glyphicon glyphicon-plus navbar-brand pull-right"
-         href="website-new.view.client.html">
+         href="#/user/{{model.userId}}/website/new">
       </a>
     </div>
   </div>
 </nav>
+
+
 <div class="container-fluid">
   <h1 class="page-header">Websites</h1>
-  <ul class="list-group">
-    <li class="list-group-item"><a href="../page/page-list.view.client.html">Website 1</a>
-      <a href="website-edit.view.client.html">
-        <span class="pull-right glyphicon glyphicon-cog"></span>
-      </a>
-    </li>
-    <li class="list-group-item"><a href="../page/page-list.view.client.html">Website 2</a>
-      <a href="website-edit.view.client.html">
-        <span class="pull-right glyphicon glyphicon-cog"></span>
-      </a>
-    </li>
-    <li class="list-group-item"><a href="../page/page-list.view.client.html">Website 3</a>
-      <a href="website-edit.view.client.html">
-        <span class="pull-right glyphicon glyphicon-cog"></span>
-      </a>
-    </li>
-    <li class="list-group-item"><a href="../page/page-list.view.client.html">Website 4</a>
-      <a href="website-edit.view.client.html">
-        <span class="pull-right glyphicon glyphicon-cog"></span>
+
+  {{model.websites}}
+  <ul class="list-group" >
+    <li class="list-group-item row" ng-repeat="website in model.websites">
+      <a class="col-xs-6" href="#/user/{{model.userId}}/website/page">{{website.name}}</a>
+      <span class="col-xs-3">{{website.developerId}} </span>
+      <span class="col-xs-2">{{website.update | date}} </span>
+      <a class="col-xs-1" href="#/user/{{model.userId}}/website/{{website._id}}">
+       {{website._id}} <span class="pull-right glyphicon glyphicon-cog"></span>
       </a>
     </li>
   </ul>
 </div>
+
+
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
     <div class="navbar-brand pull-right glyphicon glyphicon-user"
@@ -69,9 +40,3 @@
     </div>
   </div>
 </nav>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../../js/bootstrap.min.js"></script>
-</body>
-</html>

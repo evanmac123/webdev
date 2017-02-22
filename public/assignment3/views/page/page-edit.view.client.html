@@ -1,34 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <title>RL | CS 5610</title>
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Adobe TypeKit fonts -->
-  <script src="https://use.typekit.net/iza1jgq.js"></script>
-  <script>try {
-    Typekit.load({async: true});
-  } catch (e) {
-  }</script>
-  <!-- Local installation of Bootstrap -->
-  <link rel="stylesheet"
-        href="../../css/bootstrap.min.css">
-  <!-- Locally defined CSS -->
-  <link rel="stylesheet"
-        href="../css/style.css">
-</head>
-<body>
+
+<script src="controllers/page-edit.controller.client.js"></script>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand pull-left glyphicon glyphicon-menu-left"
-         href="#"></a>
-      <a class="navbar-brand" href="#">Edit Page</a>
-      <a class="navbar-brand pull-right glyphicon glyphicon-ok"
-         href="page-list.view.client.html">
+      <a href="#/user/{{model.userId}}/website/page">
+      <div class="navbar-brand pull-left glyphicon glyphicon-menu-left">
+      </div>
+      <div class="navbar-brand" href="#">Edit Page</div>
       </a>
     </div>
   </div>
@@ -38,20 +16,29 @@
   <h1 class="page-header">Edit Page</h1>
   <form class="form-group">
     <label for="websiteName">Name</label>
-    <input type="text" class="form-control" id="websiteName">
+    <input ng-model="model.page.name"
+           type="text"
+           class="form-control"
+           id="websiteName">
     <label for="websiteDescription">Description</label>
-    <textarea class="form-control" id="websiteDescription" rows="3"></textarea>
+    <textarea
+            ng-model="model.page.description"
+            class="form-control"
+            id="websiteDescription"
+            rows="3"
+    ></textarea>
   </form>
-  <a class="btn btn-danger btn-block">Delete</a>
+  <a ng-click="model.updatePage(model.page)" class="btn btn-primary btn-block">
+    Update
+  </a>
+
+  <a class="btn btn-danger btn-block" href="#/user/{{model.userId}}/website/page">
+    Cancel
+  </a>
+  <a  ng-click="model.deletePage()" class="btn btn-danger btn-block">Delete</a>
   <nav class="navbar navbar-default navbar-fixed-bottom">
     <a class="navbar-brand pull-right glyphicon glyphicon-user"
-       href="../user/profile.view.client.html">
+      >
     </a>
   </nav>
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../../js/bootstrap.min.js"></script>
-</body>
-</html>

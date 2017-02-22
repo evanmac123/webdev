@@ -25,6 +25,7 @@ app.use(express.static(__dirname + '/public'));
 require ("./test/app.js")(app);
 require("./todo/app")(app);
 require("./blog/app")(app);
+//require("./assignment-wed/app")(app);// () starts the function on server side ->assignment-wed/app.js
 
 var port      = process.env.PORT || 3000;
 

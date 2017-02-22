@@ -1,0 +1,52 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+  <div class="navbar-header">
+    <div class="navbar-brand pull-left glyphicon glyphicon-menu-left"
+         href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}">
+    </div>
+
+    <div class="navbar-brand">Edit Heading</div>
+
+    <a class="navbar-brand pull-right glyphicon glyphicon-ok"
+       ng-click="model.updateWidget(model.widget)">
+    </a>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+  <h1 class="page-header">Edit Heading</h1>
+
+  <form class="form-group">
+    <label for="widgetText">Text</label>
+    <input ng-model="model.widget.text"
+           type="text"
+           class="form-control"
+           id="widgetText"
+           placeHolder="Widget content goes here.">
+
+    <label for="widgetSize">Size</label>
+    <input ng-model="model.widget.size"
+           type="text"
+           class="form-control"
+           id="widgetSize"
+           placeHolder="e.g. '3'">
+  </form>
+  <button ng-click="model.updateWidget(model.widget)"
+          type="button"
+          class="btn btn-block ">Update
+  </button>
+
+  <button ng-click="model.deleteWidget(model.widget)"
+          type="button"
+          class="btn btn-block btn-danger">Delete
+  </button>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="pull-right navbar-brand glyphicon glyphicon-user"
+       href="#/user/{{model.userId}}">
+  </div>
+</nav>

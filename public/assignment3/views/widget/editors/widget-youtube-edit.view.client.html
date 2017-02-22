@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+  <div class="navbar-header">
+    <div class="navbar-brand pull-left glyphicon glyphicon-menu-left"
+         href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}">
+    </div>
+
+    <div class="navbar-brand">Edit Image</div>
+
+    <a class="navbar-brand pull-right glyphicon glyphicon-ok"
+       ng-click="model.updateWidget(model.widget)">
+    </a>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+  <h1 class="page-header">Edit Video</h1>
+
+  <div class="form-group">
+    <label for="widgetName">Name</label>
+    <input type="text"
+           class="form-control"
+           id="widgetName"
+           placeholder="Not yet supported">
+
+    <label for="widgetText">Text</label>
+    <input type="text"
+           class="form-control"
+           id="widgetText"
+           placeHolder="Not yet supported">
+
+    <label for="widgetSize">URL</label>
+    <input ng-model="model.widget.url"
+           type="text"
+           class="form-control"
+           id="widgetSize"
+           placeHolder="e.g. https://youtu.be/2Sut_KgDTHg">
+
+    <div class="form-group">
+      <label for="imageWidth">Width</label>
+      <input ng-model="model.widget.width"
+             type="text"
+             class="form-control"
+             id="imageWidth"
+             placeholder="e.g. 100%">
+    </div>
+    <button ng-click="model.updateWidget(model.widget)"
+            type="button"
+            class="btn btn-block ">Update
+    </button>
+
+    <button ng-click="model.deleteWidget(model.widget)"
+            type="button"
+            class="btn btn-block btn-danger">Delete
+    </button>
+
+  </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="pull-right navbar-brand glyphicon glyphicon-user"
+       href="#/user/{{model.userId}}">
+  </div>
+</nav>
