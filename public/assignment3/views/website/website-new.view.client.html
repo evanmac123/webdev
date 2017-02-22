@@ -1,95 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <title>RL | CS 5610</title>
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Adobe TypeKit fonts -->
-  <script src="https://use.typekit.net/iza1jgq.js"></script>
-  <script>try {
-    Typekit.load({async: true});
-  } catch (e) {
-  }</script>
-  <!-- Local installation of Bootstrap -->
-  <link rel="stylesheet"
-        href="../../css/bootstrap.min.css">
-  <!-- Locally defined CSS -->
-  <link rel="stylesheet"
-        href="../css/style.css">
-</head>
-<body>
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand glyphicon glyphicon-menu-left"
-         href="website-list.view.client.html">
-      </a>
-      <a class="navbar-brand" href="#">New Website</a>
-      <a class="pull-right navbar-brand glyphicon glyphicon-ok"
-         href="website-list.view.client.html">
-      </a>
+  <div class="row container-fluid">
+    <div class="col-sm-4 hidden-xs">
+      <div class="navbar-text pull-left">
+        <a href="#/user/{{model.userId}}/website/{{website._id}}">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <div class="navbar-header">
+            Websites
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="navbar-text pull-left visible-xs">
+        <a >
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-123">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">New Website</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-123">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Link 123</a></li>
+          <li><a href="#">Link 234</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
-<div class="container-fluid">
-  <div class="col-md-3">
-    <h3 class="page-header">Choose Site</h3>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <a href="../page/page-list.view.client.html">Website 1</a>
-        <a class="pull-right glyphicon glyphicon-cog"
-           href="website-edit.view.client.html">
+
+<div class="row container-fluid">
+  <div class="col-sm-4 hidden-xs wbdv-left-pane">
+    <div class="panel panel-primary">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <a href="website-new.html" class="pull-right">
+          <span class="glyphicon glyphicon-plus"></span>
         </a>
-      </li>
-      <li class="list-group-item">
-        <a href="../page/page-list.view.client.html">Website 2</a>
-        <a href="website-edit.view.client.html">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
-        </a>
-      </li>
-      <li class="list-group-item">
-        <a href="../page/page-list.view.client.html">Website 3</a>
-        <a href="website-edit.view.client.html">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
-        </a>
-      </li>
-      <li class="list-group-item">
-        <a href="../page/page-list.view.client.html">Website 4</a>
-        <a href="website-edit.view.client.html">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-6 container-fluid">
-    <h3 class="page-header">Edit Site</h3>
-    <form>
-      <div class="form-group">
-        <label for="websiteName">Name</label>
-        <input type="text" class="form-control" id="websiteName">
+        Name
       </div>
-    </form>
-    <form>
-      <div class="form-group">
-        <label for="websiteDescription">Description</label>
-        <textarea class="form-control" id="websiteDescription" rows="3"></textarea>
-      </div>
-    </form>
+      <ul class="list-group">
+        <li ng-repeat="website in model.websites" class="list-group-item">
+          <a href="../page/page-list.html">
+            {{website.name}}
+          </a>
+          <a href="website-edit.html" class="pull-right">
+            <span class="glyphicon glyphicon-cog"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
   </div>
-</div>
-<nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container-fluid">
-    <a class="navbar-brand glyphicon glyphicon-user pull-right"
-       href="../user/profile.view.client.html">
+  <div class="col-xs-12 col-sm-8 wbdv-right-pane">
+
+    <div class="alert alert-success" role="alert">
+      Hello
+      <span class="glyphicon glyphicon-remove pull-right"></span>
+    </div>
+
+    <label for="name">Website Name</label>
+    <input ng-model="model.website.name"
+           class="form-control"
+           id="name"
+           placeholder="Website Name">
+
+    <label for="description">Website Description</label>
+    <textarea ng-model="model.website.description"
+              class="form-control" id="description" placeholder="Description"></textarea>
+
+    <a ng-click="model.createWebsite(model.website)" class="btn btn-primary btn-block">
+      Create
+    </a>
+
+    <a class="btn btn-danger btn-block" href="website-list.html">
+      Cancel
     </a>
   </div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Footer</a>
+    </div>
+  </div>
 </nav>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../../js/bootstrap.min.js"></script>
-</body>
-</html>

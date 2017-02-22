@@ -1,0 +1,47 @@
+<!-- Navbar (top) -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand">R. Loretto | CS 5610</div>
+    </div>
+  </div>
+</nav>
+<!-- Core content -->
+<div class="container">
+  <h1 class="page-header">Login</h1>
+  <!-- Alert if login fails -->
+  <div ng-show="model.error"
+       class="alert alert-danger">{{model.error}}
+  </div>
+  <label for="username">Username</label>
+  <input ng-model="model.user.username"
+         class="form-control"
+         id="username"
+         type="text"
+         placeholder="username"/>
+  <label for="password">Password</label>
+  <input ng-model="model.user.password"
+         class="form-control"
+         id="password"
+         type="password"
+         placeholder="password"/>
+  <a ng-click="model.login(model.user)"
+     class="btn btn-primary btn-block">Login</a>
+  <a class="btn btn-success btn-block"
+     ng-href="#/register">Register</a>
+</div>
+<!-- Navbar (bottom) -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+  </div>
+</nav>

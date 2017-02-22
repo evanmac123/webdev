@@ -4,34 +4,43 @@
         .controller("ProfileController", ProfileController);
 
 
-    function ProfileController($routeParams, UserService) {
+    function ProfileController($location,$routeParams, UserService) {
         var vm = this;
-        vm.recentlyUpdated; //declaring
+
         // event handlers
         vm.updateUser = updateUser;
-        // vm.deleteUser = deleteUsers;
+        vm.deleteUser = deleteUser;
 
         var userId = $routeParams['uid'];
-
-      //  var userlist = UserService.users;
-
-      //  vm.list = userlist;
 
         function init() {
             var user = UserService.findUserById(userId);
             vm.user = user;
             vm.recentlyUpdated = false;
+            vm.error = false;
+            vm.userDeleted = false;
+            vm.errorDeleted = false;
         }
         init();
 
+        function deleteUser(){
+            var usergone = UserService.deleteUser(userId);
+             //confused ask for help
+            if(usergone !== null) {
+                vm.userDeleted = true; //init var
+
+            } else {
+                vm.errorDeleted = true;
+            }
+            $location.url("/#/login");
+        }
+
         function updateUser(newUser) {
             var user = UserService.updateUser(userId, newUser);
-            console.log(user);
             if(user !== null) {
                 vm.recentlyUpdated = true; //init var
-                console.log("gothere");
             } else {
-                vm.error = "Unable to update user";
+                vm.error = true;
             }
         }
     }

@@ -1,0 +1,42 @@
+<!-- Navbar top -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <!-- Navigate back to profile page -->
+      <span class="navbar-brand pull-left">
+        <a ng-href="#/user/{{model.userId}}"
+           class="glyphicon glyphicon-menu-left"></a>
+      </span>
+
+      <span class="navbar-brand">Websites</span>
+
+      <a class="glyphicon glyphicon-plus navbar-brand pull-right"
+         ng-href="#/user/{{model.userId}}/website/new">
+      </a>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Core content -->
+<div class="container-fluid">
+  <h1 class="page-header">Websites</h1>
+  <ul class="list-group">
+    <li ng-repeat="website in model.websites"
+        class="list-group-item">
+      <a ng-href="#/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+      <a ng-href="#/user/{{model.userId}}/website/{{website._id}}"
+         class="pull-right glyphicon glyphicon-cog"></a>
+    </li>
+  </ul>
+</div>
+
+<!-- Navbar bottom -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand pull-right glyphicon glyphicon-user"
+       ng-href="#/user/{{model.userId}}">
+    </a>
+  </div>
+</nav>

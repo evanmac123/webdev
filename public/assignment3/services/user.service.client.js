@@ -8,6 +8,8 @@
         //factories are functions that get called
         //can be treated as a service
         //services are one offs that can be thrown and used freely
+
+
     function userService() {
         var users = [
             {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
@@ -26,7 +28,6 @@
         return api;
 
         function updateUser(userId, newUser) {//comes from the model
-            console.log('LASJHDSAD')
             for(var u in users) {
                 if( users[u]._id == userId ) {
                     users[u].firstName = newUser.firstName;
@@ -51,6 +52,7 @@
                     users.splice(u, 1); //remove from list by taking instance
                 }
             }
+            return null;
         }
 
         function findUserByUsername (username) {

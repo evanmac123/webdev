@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WebAppMaker">
+<head>
+  <!-- Required meta tags -->
+  <title>RL | CS 5610 | Assignment</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-route.js"></script>
+
+  <!-- Implementation of AngularJS application -->
+  <script src="app.js"></script>
+  <script src="config.js"></script>
+
+  <!-- Controller dependencies: User -->
+  <script src="views/user/controller/login.controller.client.js"></script>
+  <script src="views/user/controller/register.controller.client.js"></script>
+  <script src="views/user/controller/profile.controller.client.js"></script>
+  <!-- Controller dependencies: Website -->
+  <script src="views/website/controller/website-new.controller.client.js"></script>
+  <script src="views/website/controller/website-list.controller.client.js"></script>
+  <script src="views/website/controller/website-edit.controller.client.js"></script>
+  <!-- Controller dependencies: Page -->
+  <script src="views/page/controller/page-new.controller.client.js"></script>
+  <script src="views/page/controller/page-list.controller.client.js"></script>
+  <script src="views/page/controller/page-edit.controller.client.js"></script>
+  <!-- Controller dependencies: Widget -->
+  <script src="views/widget/controller/widget-new.controller.client.js"></script>
+  <script src="views/widget/controller/widget-list.controller.client.js"></script>
+  <script src="views/widget/controller/widget-edit.controller.client.js"></script>
+  <!-- Service dependencies: All -->
+  <script src="services/user.service.client.js"></script>
+  <script src="services/website.service.client.js"></script>
+  <script src="services/page.service.client.js"></script>
+  <script src="services/widget.service.client.js"></script>
+
+  <!-- JQuery -->
+  <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+
+  <!-- Local installation of Bootstrap in /public directory -->
+  <link rel="stylesheet"
+        href="../css/bootstrap.min.css">
+
+  <!-- Locally defined CSS -->
+  <link rel="stylesheet"
+        href="css/style.css">
+
+  <!-- Adobe TypeKit fonts -->
+  <script src="https://use.typekit.net/iza1jgq.js"></script>
+  <script>try {
+    Typekit.load({async: true});
+  } catch (e) {
+  }</script>
+</head>
+
+<body>
+
+<!-- Core content -->
+<div ng-view>
+  <a ng-href="#/login">Test</a>
+</div>
+
+</body>
+</html>

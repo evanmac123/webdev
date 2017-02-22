@@ -1,0 +1,56 @@
+<!-- Navbar (top) -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand pull-left glyphicon glyphicon-menu-left"
+         ng-href="#/user/{{model.userId}}/website">
+      </a>
+
+      <div class="navbar-brand">Edit Website</div>
+
+      <a class="navbar-brand pull-right glyphicon glyphicon-ok"
+         ng-href="#/user/{{model.userId}}/website">
+      </a>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Core content -->
+<div class="container">
+  <h1 class="page-header">Edit Website</h1>
+  <form class="form-group">
+
+    <label for="website-name">Name {{model.websiteName}}</label>
+    <input ng-model="model.website.name"
+           type="text"
+           class="form-control"
+           id="website-name"
+           placeholder="Site name">
+
+    <label for="website-description">Description {{model.websiteDescription}}</label>
+    <textarea ng-model="model.websiteDescription"
+              class="form-control"
+              id="website-description"
+              rows="3"
+              placeholder="Site description"></textarea>
+  </form>
+
+  <!-- Update the website based on the user's changes -->
+  <a ng-click="model.updateWebsite(model.website)"
+     class="btn btn-primary btn-block">Update</a>
+
+  <!-- Delete the website that matches the website-id parameter -->
+  <a ng-click="model.deleteWebsite()"
+     class="btn btn-danger btn-block">Delete</a>
+
+  <!-- Navbar (bottom) -->
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <a class="navbar-brand pull-right glyphicon glyphicon-user"
+         ng-href="#/user/{{model.userId}}">
+      </a>
+    </div>
+  </nav>
+</div>

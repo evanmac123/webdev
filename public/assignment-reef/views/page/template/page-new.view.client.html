@@ -1,0 +1,58 @@
+<!-- Navigation bar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <div class="navbar-brand pull-left">
+        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+          <span class="glyphicon glyphicon-menu-left"></span></a>
+      </div>
+
+      <div class="navbar-brand">New Page</div>
+
+      <div class="navbar-brand pull-right">
+        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+          <span class="glyphicon glyphicon-ok"></span></a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+  <h1 class="page-header">New Page</h1>
+
+  <form class="form-group">
+
+    <label for="websiteName">Name</label>
+    <input ng-model="model.page.pageName"
+           type="text"
+           class="form-control"
+           id="websiteName"
+           placeholder="Name of your page">
+
+    <label for="websiteDescription">Description</label>
+    <textarea ng-model="model.page.pageDescription"
+              class="form-control"
+              id="websiteDescription"
+              rows="3"
+              placeholder="Description of your page"></textarea>
+
+  </form>
+
+  <button ng-click="model.createPage(model.page.pageName, model.page.pageDescription)"
+          class="btn btn-primary btn-block">Create
+  </button>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="pull-right navbar-brand">
+      <a class="glyphicon glyphicon-user"
+         ng-href="#/user/{{model.userId}}">
+      </a>
+    </div>
+  </div>
+</nav>
