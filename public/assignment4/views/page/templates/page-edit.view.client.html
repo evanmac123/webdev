@@ -1,0 +1,44 @@
+
+<script src="../controllers/page-edit.controller.client.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#/user/{{model.userId}}/website/page">
+      <div class="navbar-brand pull-left glyphicon glyphicon-menu-left">
+      </div>
+      <div class="navbar-brand" href="#">Edit Page</div>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="page-header">Edit Page</h1>
+  <form class="form-group">
+    <label for="websiteName">Name</label>
+    <input ng-model="model.page.name"
+           type="text"
+           class="form-control"
+           id="websiteName">
+    <label for="websiteDescription">Description</label>
+    <textarea
+            ng-model="model.page.description"
+            class="form-control"
+            id="websiteDescription"
+            rows="3"
+    ></textarea>
+  </form>
+  <a ng-click="model.updatePage(model.page)" class="btn btn-primary btn-block">
+    Update
+  </a>
+
+  <a class="btn btn-danger btn-block" href="#/user/{{model.userId}}/website/page">
+    Cancel
+  </a>
+  <a  ng-click="model.deletePage()" class="btn btn-danger btn-block">Delete</a>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <a class="navbar-brand pull-right glyphicon glyphicon-user"
+      >
+    </a>
+  </nav>
+</div>

@@ -23,6 +23,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 require ("./test/app.js")(app);
+require ("./assignment4/app.js")(app);
 require("./todo/app")(app);
 require("./blog/app")(app);
 //require("./assignment-wed/app")(app);// () starts the function on server side ->assignment-wed/app.js
