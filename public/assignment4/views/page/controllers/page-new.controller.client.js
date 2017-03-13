@@ -4,33 +4,25 @@
         .controller("PageNewController", PageNewController);
 
     function PageNewController($location,$routeParams, PageService){
-        var userId = $routeParams.uid; //declaring needs from routeParams
-        var pages = PageService.findAllPages(userId);
-        var pageId = $routeParams.wid;
-        var vm = this;
-
+        let vm = this;
         // event handlers
         vm.createPage = createPage;
 
-        vm.pages = pages;
-        vm.userId = userId;
-        vm.pageId = pageId;
-        vm.page = PageService.findPageById(pageId);
 
         function init() {
+            vm.websiteId  = $routeParams.wid;
+            vm.userId = $routeParams.uid; //declaring needs from routeParams
+            vm.pages = PageService.findAllPagesByWebsite(vm.websiteId);
+
         }
         init();
 
         function createPage(newPage) {
-            freshPage =  {name: newPage.name, description: newPage.description, developerId: userId };
-            var page = PageService.createPage(freshPage);
-            if(page !== null) {
-                vm.recentlyUpdated = true; //init var
-            } else {
-                vm.error = true;
-            }
-            var locationback = "/user/"+userId+"/website/page";
-            $location.url(locationback);
+            console.log(newPage);
+             PageService.createPage(vm.websiteId, newPage)
+                .success(function(page){
+                     $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+                });
         }
 
 

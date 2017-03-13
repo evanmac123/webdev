@@ -14,7 +14,7 @@ module.exports = function (app) {
 
     function updateUser(req, res) {
         var userId = req.params.userId;
-        var newUser = req.body;
+        var newUser = req.body.user;
          for(var u in users){if( users[u]._id == userId ) {
              users[u].firstName = newUser.firstName;
              users[u].lastName = newUser.lastName;
@@ -39,6 +39,7 @@ module.exports = function (app) {
                 return ( user._id !== userId );
         });
         res.sendStatus( 204 );//sends status that update has been made but no response is needed
+
     }
 
     function findUserById(req, res) {

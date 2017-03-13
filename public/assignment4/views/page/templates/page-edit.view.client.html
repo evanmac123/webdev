@@ -3,7 +3,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="#/user/{{model.userId}}/website/page">
+      <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
       <div class="navbar-brand pull-left glyphicon glyphicon-menu-left">
       </div>
       <div class="navbar-brand" href="#">Edit Page</div>
@@ -32,7 +32,7 @@
     Update
   </a>
 
-  <a class="btn btn-danger btn-block" href="#/user/{{model.userId}}/website/page">
+  <a class="btn btn-danger btn-block" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
     Cancel
   </a>
   <a  ng-click="model.deletePage()" class="btn btn-danger btn-block">Delete</a>

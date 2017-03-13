@@ -31,12 +31,12 @@
                 controller:"WebsiteNewController",
                 controllerAs: 'model'
             })
-            .when('/user/:uid/website/page',{
+            .when('/user/:uid/website/:wid/page',{
                 templateUrl: "views/page/templates/page-list.view.client.html",
                 controller:"PageListController",
                 controllerAs:'model'
             })
-            .when('/user/:uid/website/page/new',{
+            .when('/user/:uid/website/:wid/page/new',{
                 templateUrl: "views/page/templates/page-new.view.client.html",
                 controller:"PageNewController",
                 controllerAs:'model'
@@ -65,7 +65,7 @@
                 templateUrl: "views/website/templates/website-edit.view.client.html",
                 controller: "WebsiteEditController",
                 controllerAs: "model"
-            })
+            });
 
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
         $httpProvider.defaults.headers.put['Content-Type'] = 'application/json;charset=utf-8';

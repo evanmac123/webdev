@@ -1,11 +1,10 @@
+/*
 (function () {
     angular
         .module('WebAppMaker')
         .controller('WebsiteListController', WebsiteListController)
         .controller("WebsiteEditController", WebsiteEditController)
         .controller("WebsiteNewController", WebsiteNewController);
-
-    console.log(cat);
     function WebsiteListController($routeParams, WebsiteService) {
         let vm = this;
 
@@ -23,7 +22,6 @@
         }
         init();
     }
-
 
     function WebsiteEditController($location,$routeParams, WebsiteService){
         let vm = this;
@@ -82,3 +80,4 @@
         init();
         }
 });
+*/

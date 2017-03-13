@@ -18,10 +18,9 @@
 <div class="container-fluid">
   <h1 class="page-header">Websites</h1>
 
-  {{model.websites}}
   <ul class="list-group" >
     <li class="list-group-item row" ng-repeat="website in model.websites">
-      <a class="col-xs-6" href="#/user/{{model.userId}}/website/page">{{website.name}}</a>
+      <a class="col-xs-6" href="#/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
       <span class="col-xs-3">{{website.developerId}} </span>
       <span class="col-xs-2">{{website.update | date}} </span>
       <a class="col-xs-1" href="#/user/{{model.userId}}/website/{{website._id}}">

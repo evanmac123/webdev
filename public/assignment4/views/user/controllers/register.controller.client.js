@@ -14,8 +14,7 @@
         init();
 
         function register(newUser) {
-            console.log(newUser);
-            UserService.createUser(newUser)
+             UserService.createUser(newUser)
                 .success(function(user){
                     console.log(user);
             if(user) {

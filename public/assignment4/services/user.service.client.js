@@ -2,6 +2,7 @@
     angular
         .module("WebAppMaker")
         .factory("UserService", userService);
+
     function userService($http) {//native service $http (interact with server
         const apiRoute = '/api/user/';
 

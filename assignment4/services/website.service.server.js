@@ -1,57 +1,74 @@
 module.exports = function (app) {
-    app.get("/api/user", findAllWebsites);
-    app.get("/api/user/:userId", findWebsiteById);
-    app.put("/api/user/:userId", updateWebsite);
-    app.delete("/api/user/:userId", deleteWebsite);
-    app.post("/api/user/", createWebsite);
+    app.post("/api/user/:userId/website", createWebsite);
+    app.get("/api/user/:userId/website", findAllWebsitesByUser);
+    app.put("/api/website/:websiteId", updateWebsite);
+    app.delete("/api/website/:websiteId", deleteWebsite);
+    app.get("/api/website/:websiteId", findWebsitesById);
 
-    //Create, read, update and delete
 
-    function createWebsite(website) {
-        websites.push(website);
-        res.json(website);
-    }
+        let websites = [
+            {"_id": "123", "name": "Facebook", update: new Date(), "developerId": "456", "description": "Lorem"},
+            {"_id": "234", "name": "Tweeter", update: new Date(), "developerId": "456", "description": "Lorem"},
+            {"_id": "456", "name": "Gizmodo", update: new Date(), "developerId": "234", "description": "Lorem"},
+            {"_id": "567", "name": "Tic T``ac Toe", update: new Date(), "deeloperId": "123", "description": "Lorem"},
+            {"_id": "678", "name": "Checkers", update: new Date(), "developerId": "234", "description": "Lorem"},
+            {"_id": "789", "name": "Chess", update: new Date(), "developerId": "234", "description": "Lorem"}
+        ];
+        //Create, read, update and delete
 
-    function findWebsitesbyUser(website) {
-        websites.push(website);
-        res.json(website);
-    }
+        function createWebsite(req, res) {
+            let newWebsite = req.body.website;
+            let userId = req.params.userId;
 
-    function findWebsiteById(websiteId) {
-        for (var w in websites) {
-            if (websiteId === websites[w]._id) {
-                res.json(websites[w]);
+            let randId = Math.floor(Math.random() * 999) + 1;
+            const freshWebsite = {_id: randId, name: newWebsite.name, description: newWebsite.description,  developerId: userId};
+            websites.push(freshWebsite);
+            res.json(freshWebsite);
+        }
+
+        function updateWebsite( req, res ) {
+            let websiteId = req.params.websiteId;
+            let newwebsite = req.body;
+            console.log(newwebsite);
+            for(let w in websites){
+                if( websites[w]._id == websiteId ) {
+                    websites[w].name = newwebsite.name;
+                    websites[w].description = newwebsite.description;
+                    res.json(websites[w]);
+                    return;
+                }
+            }
+        }
+
+        function findAllWebsitesByUser(req, res) {
+            let userId = req.params.userId;
+            console.log(userId);
+
+            let sites = [];
+            for (let w in websites) {
+                if (userId === websites[w].developerId) {
+                    sites.push(websites[w]);
+                }
+            }
+            res.json(sites);
+        }
+
+        function findWebsitesById(req, res) {
+            let websiteId = req.params.websiteId;
+            let website = websites.find(site => {
+                return ( site._id === websiteId );
+            });
+
+            res.json(website);
+        }
+
+        function deleteWebsite(req, res) {
+            let websiteId = req.params.websiteId;
+            for (w in websites) {
+                if (websites[w]._id == websiteId) {
+                    websites.splice(w, 1);
+                    res.sendStatus(204);
+                }
             }
         }
     }
-
-    function findAllWebsites(userId) {
-        var sites = [];
-        for (var w in websites) {
-            if (userId === websites[w].developerId) {
-                sites.push(websites[w]);
-            }
-        }
-        res.json(sites);
-    }
-
-    function updateWebsite(websiteId, newWebsite) {//comes from the model
-        console.log(newWebsite);
-        for (var w in websites) {
-            if (websites[w]._id == websiteId) {
-                websites[w].name = newWebsite.name;
-                websites[w].description = newWebsite.description;
-                res.json(websites[w]);
-        }
-        }
-    }
-
-    function deleteWebsite(websiteId){
-        for(var w in websites) {
-            if( websites[w]._id == websiteId ) {
-                websites.splice(w, 1); //remove from list by taking instance
-                res.sendStatus( 204 );//sends status that update has been made but no response is needed
-            }
-        }
-    }
-}
