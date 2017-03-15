@@ -11,7 +11,7 @@ module.exports = function (app) {
         {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
         {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
     ];
-
+    console.log("from user service");
     function updateUser(req, res) {
         var userId = req.params.userId;
         var newUser = req.body.user;

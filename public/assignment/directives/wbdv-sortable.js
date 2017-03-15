@@ -13,8 +13,4 @@
                link: linkFunction
            }
        }
-
-
-
-
 });
