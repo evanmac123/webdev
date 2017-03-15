@@ -19,7 +19,6 @@ module.exports = function (app) {
     function createPage(req, res) {
          let newPage = req.body.newPage;
          let websiteId = req.params.websiteId;
-        console.log(websiteId+"cat");
         let randId = Math.floor(Math.random() * 999) + 1;
         let freshPage =  {id:randId, name: newPage.name, description: newPage.description, websiteId: websiteId };
           pages.push(freshPage);
@@ -28,22 +27,20 @@ module.exports = function (app) {
     }
 
     function updatePage(req, res) {
-        /* let websiteId = req.params.websiteId;
-         let newwebsite = req.body;
-         console.log(newwebsite);
-         for(var w in websites){
-         if( websites[w]._id == websiteId ) {
-         websites[w].name = newwebsite.name;
-         websites[w].description = newwebsite.description;
-         res.json(websites[w]);
+         let pageId = req.params.pageId;
+         let newPage = req.body;
+         for(var p in pages){
+         if( pages[p]._id == pageId ) {
+         pages[p].name = newPage.name;
+         pages[p].description = newPage.description;
+         res.json(pages[p]);
          return;
          }
-         }*/
+         }
     }
 
     function findAllPagesByWebsite(req, res) {
         let websiteId = req.params.websiteId;
-        console.log(websiteId);
         let idpage = [];
         for (let p in pages) {
             if (websiteId === pages[p].websiteId) {
@@ -54,22 +51,21 @@ module.exports = function (app) {
     }
 
     function findPageById(req, res) {
-        /*  let websiteId = req.params.websiteId;
-         let website = websites.find(site => {
-         return ( site._id === websiteId );
+         let pageId = req.params.pageId;
+         let page = pages.find(site => {
+         return ( site._id === pageId );
          });
 
-         res.json(website);*/
+         res.json(page);
     }
 
     function deletePage(req, res) {
-        /* let websiteId = req.params.websiteId;
-         for (w in websites) {
-         if (websites[w]._id == websiteId) {
-         websites.splice(w, 1);
-         res.sendStatus(204);
+         let pageId = req.params.pageId;
+         for (p in page) {
+             if (pages[p]._id == pageId) {
+                 pages.splice(p, 1);
+                 res.sendStatus(204);
+             }
          }
-         }
-         }*/
     }
 }

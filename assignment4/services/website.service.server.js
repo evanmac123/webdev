@@ -29,7 +29,6 @@ module.exports = function (app) {
         function updateWebsite( req, res ) {
             let websiteId = req.params.websiteId;
             let newwebsite = req.body;
-            console.log(newwebsite);
             for(let w in websites){
                 if( websites[w]._id == websiteId ) {
                     websites[w].name = newwebsite.name;
@@ -42,8 +41,6 @@ module.exports = function (app) {
 
         function findAllWebsitesByUser(req, res) {
             let userId = req.params.userId;
-            console.log(userId);
-
             let sites = [];
             for (let w in websites) {
                 if (userId === websites[w].developerId) {
